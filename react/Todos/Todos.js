@@ -16,8 +16,15 @@ class Todos extends React.Component {
       <View>
         <ListView
         dataSource={this.todos()}
-        renderRow={(todo) => <Todo todo={todo} />}
-        />
+        renderRow={(todo, section, row) => (
+          <Todo
+            key={parseInt(row)}
+            id={parseInt(row)}
+            value={todo.value}
+            completed={todo.completed}
+            handleToggle={this.props.handleToggle}
+            />
+        )} />
       <AddTodo handleAdd={this.props.handleAdd}/>
       </View>
     )
