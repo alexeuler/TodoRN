@@ -5,42 +5,21 @@ import {
   View
 } from 'react-native';
 
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import Todos from './Todos/Todos'
 
 class Main extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started
-        </Text>
-        <Text style={styles.instructions}>
-          Just get started
-        </Text>
-      </View>
+      <ScrollableTabView
+        tabBarPosition="bottom"
+        >
+        <Todos tabLabel="All" todos={[1,2]}/>
+        <Todos tabLabel="Uncompleted" todos={[1]}/>
+        <Todos tabLabel="Completed" todos={[2]}/>
+      </ScrollableTabView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 export default Main;
