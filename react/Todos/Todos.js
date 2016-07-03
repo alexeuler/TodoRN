@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, ListView } from 'react-native'
+import { Text, View, ListView } from 'react-native'
+
+import AddTodo from './AddTodo/AddTodo'
 
 class Todos extends React.Component {
 
@@ -14,10 +16,13 @@ class Todos extends React.Component {
 
   render() {
     return (
-      <ListView
-      dataSource={this.state.dataSource}
-      renderRow={(todo) => <Text>{todo}</Text>}
-      />
+      <View>
+        <ListView
+        dataSource={this.state.dataSource}
+        renderRow={(todo) => <Text>{todo}</Text>}
+        />
+        <AddTodo />
+      </View>
     )
   }
 }
