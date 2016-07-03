@@ -19,7 +19,8 @@ class Main extends React.Component {
 
   handleAdd(todo) {
     var todos = this.state.todos;
-    todos.push(todo);
+
+    todos.push({ value: todo, done: false });
     this.setState({ todos });
   }
 
