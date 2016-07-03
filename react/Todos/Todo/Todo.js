@@ -10,9 +10,13 @@ class Todo extends React.Component {
     this.state = {value: props.completed};
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({value: props.completed});
+  }
+
   handleChange(completed) {
     this.setState({ value: completed })
-    this.props.handleToggle(this.props.id);
+    this.props.handleToggle(this.props.id, completed);
   }
 
   render() {
@@ -27,4 +31,3 @@ class Todo extends React.Component {
 }
 
 export default Todo;
-        // <Switch value={this.state.value} onValueChange={this.props.handleChange} />

@@ -20,14 +20,14 @@ class Main extends React.Component {
   handleAdd(todo) {
     var todos = this.state.todos;
 
-    todos.push({ value: todo, completed: false });
+    todos.push({ value: todo, completed: false, id: todos.length });
     this.setState({ todos });
     console.log(this.state);
   }
 
-  handleToggle(index) {
+  handleToggle(index, completed) {
     var todos = this.state.todos;
-    todos[index].completed = !todos[index].completed;
+    todos[index].completed = completed;
     this.setState({ todos });
     console.log(this.state);
   }
@@ -37,9 +37,9 @@ class Main extends React.Component {
       <ScrollableTabView
         tabBarPosition="bottom"
         >
-        <Todos tabLabel="All" todos={this.state.todos} handleAdd={this.handleAdd} handleToggle={this.handleToggle} />
-        <Todos tabLabel="Uncompleted" todos={[1]} handleAdd={this.handleAdd} handleToggle={this.handleToggle} />
-        <Todos tabLabel="Completed" todos={[2]} handleAdd={this.handleAdd} handleToggle={this.handleToggle} />
+        <Todos tabLabel="All" todos={this.state.todos} handleAdd={this.handleAdd} handleToggle={this.handleToggle} filter="unfiltered" />
+        <Todos tabLabel="Uncompleted" todos={this.state.todos} handleAdd={this.handleAdd} handleToggle={this.handleToggle} filter="uncompleted" />
+        <Todos tabLabel="Completed" todos={this.state.todos} handleAdd={this.handleAdd} handleToggle={this.handleToggle} filter="completed"/>
       </ScrollableTabView>
     );
   }
