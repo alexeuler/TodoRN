@@ -8,6 +8,7 @@ import _ from 'lodash';
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Todos from './Todos/Todos'
+import Styles from './Styles'
 
 class Main extends React.Component {
 
@@ -36,6 +37,7 @@ class Main extends React.Component {
     return (
       <ScrollableTabView
         tabBarPosition="bottom"
+        style={Styles.container}
         >
         <Todos tabLabel="All" todos={this.state.todos} handleAdd={this.handleAdd} handleToggle={this.handleToggle} filter="unfiltered" />
         <Todos tabLabel="Uncompleted" todos={this.state.todos} handleAdd={this.handleAdd} handleToggle={this.handleToggle} filter="uncompleted" />
