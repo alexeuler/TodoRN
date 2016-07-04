@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import React, { PropTypes } from 'react';
+import { View, TextInput } from 'react-native';
 import Button from 'react-native-button';
 import _ from 'lodash';
 
@@ -36,6 +36,10 @@ class AddTodo extends React.Component {
       </View>
     )
   }
+}
+
+AddTodo.propTypes = {
+  handleAdd: PropTypes.func.isRequired
 }
 
 export default AddTodo;

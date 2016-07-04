@@ -1,9 +1,4 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
 import _ from 'lodash';
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -23,14 +18,12 @@ class Main extends React.Component {
 
     todos.push({ value: todo, completed: false, id: todos.length });
     this.setState({ todos });
-    console.log(this.state);
   }
 
   handleToggle(index, completed) {
     var todos = this.state.todos;
     todos[index].completed = completed;
     this.setState({ todos });
-    console.log(this.state);
   }
 
   render() {

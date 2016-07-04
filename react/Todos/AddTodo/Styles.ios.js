@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { StyleSheet } from 'react-native'
+import Colors from '../../Colors';
 
 const Styles = StyleSheet.create({
   container: {
@@ -8,7 +7,7 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    borderBottomColor: '#009688',
+    borderBottomColor: Colors.green,
     borderBottomWidth: 3,
   },
   input: {

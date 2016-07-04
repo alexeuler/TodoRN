@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, ListView } from 'react-native';
+import React, { PropTypes } from 'react';
+import { View } from 'react-native';
 import _ from 'lodash';
 
 import AddTodo from './AddTodo/AddTodo';
@@ -25,7 +25,6 @@ class Todos extends React.Component {
   }
 
   render() {
-    console.log(this.props.filter)
     return (
       <View>
         {_.map(this.todos(), (todo) => (
@@ -41,6 +40,13 @@ class Todos extends React.Component {
       </View>
     )
   }
+}
+
+Todos.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleToggle: PropTypes.func.isRequired,
+  handleAdd: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired
 }
 
 export default Todos;

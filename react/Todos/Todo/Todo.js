@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { StyleSheet, View, Text, Switch } from 'react-native'
 import _ from 'lodash';
+import Colors from '../../Colors';
 
 class Todo extends React.Component {
 
@@ -31,13 +32,20 @@ class Todo extends React.Component {
   }
 }
 
+Todo.propTypes = {
+  id: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
+  handleToggle: PropTypes.func.isRequired
+}
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     height: 60,
     padding: 10,
-    borderBottomColor: '#AAAAAA',
+    borderBottomColor: Colors.gray,
     borderBottomWidth: 1
   },
   text: {
@@ -48,9 +56,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end'
   },
-  switch: {
-
-  }
 })
 
 export default Todo;
